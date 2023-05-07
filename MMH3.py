@@ -1,6 +1,3 @@
-Certainly! Here's the updated version of the script that includes the requested functionality:
-
-```python
 import mmh3
 import hashlib
 import requests
@@ -104,14 +101,14 @@ while True:
     choice = input("Select an option (1, 2, 3), or enter 'q' to quit: ")
 
     if choice == "1":
-        file_path = input("Enter the path to the file: ")
+        file_path = input("Enter the path to the .ico or .html file: ")
         calculate_file_hash(file_path)
 
     elif choice == "2":
-        url = input("Enter the URL of the website: ")
+        url = input("Enter the URL of the website (supporting HTTP and HTTPS): ")
         file_extension = input("Enter the file extension (.ico or .html): ")
 
-           if file_extension.lower() not in [".ico", ".html"]:
+        if file_extension.lower() not in [".ico", ".html"]:
             print("Invalid file extension. Only .ico and .html files are supported.")
         else:
             download_file(url, file_extension)
