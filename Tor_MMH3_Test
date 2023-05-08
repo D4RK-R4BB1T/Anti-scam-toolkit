@@ -1,0 +1,119 @@
+import mmh3
+import hashlib
+import requests
+import os
+import subprocess
+import sys
+import stem.process
+
+
+def install_libraries():
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "mmh3", "hashlib", "stem"])
+        print("Libraries installed successfully.")
+
+    except subprocess.CalledProcessError:
+        print("Failed to install libraries. Please make sure you have pip installed.")
+        sys.exit(1)
+
+
+def calculate_file_hash(file_path):
+    try:
+        with open(file_path, 'rb') as file:
+            file_content = file.read()
+
+        mmh3_hash = mmh3.hash(file_content)
+        hex_hash = hashlib.md5(file_content).hexdigest()
+
+        print("MMH3 Hash:", mmh3_hash)
+        print("Hexadecimal Hash:", hex_hash)
+
+    except FileNotFoundError:
+        print("File not found. Please provide a valid file path.")
+
+
+def download_file(url, file_extension):
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            file_content = response.content
+
+            file_name = "downloaded_file" + file_extension
+            with open(file_name, 'wb') as file:
+                file.write(file_content)
+
+            print("File downloaded successfully as", file_name)
+            calculate_file_hash(file_name)
+
+        else:
+            print("Failed to download file. Invalid URL or resource not found.")
+
+    except requests.exceptions.RequestException:
+        print("Failed to download file. Connection error.")
+
+
+def configure_tor():
+    tor_process = stem.process.launch_tor_with_config(
+        config={
+            'SocksPort': '9050',
+            'ControlPort': '9051',
+            'Log': 'notice stdout',
+        },
+        tor_cmd='tor'
+    )
+    print("Tor configured successfully.")
+    return tor_process
+
+
+# Check if the required libraries are installed
+try:
+    import mmh3
+    import hashlib
+    import requests
+    import stem.process
+except ImportError:
+    print("Required libraries not found.")
+
+    while True:
+        choice = input("Do you want to install the required libraries? (y/n): ")
+
+        if choice.lower() == "y":
+            install_libraries()
+            break
+        elif choice.lower() == "n":
+            print("Cannot proceed without the required libraries. Exiting.")
+            sys.exit(1)
+        else:
+            print("Invalid choice. Please enter 'y' or 'n'.")
+
+
+# Configure Tor
+tor_process = configure_tor()
+
+# Main menu
+while True:
+    print("---- Main Menu ----")
+    print("1. Download an HTML file from a Tor hidden service")
+    print("2. Download a fav.ico from a Tor hidden service")
+    print("3. Quit")
+
+    choice = input("Select an option (1, 2, 3): ")
+
+    if choice == "1":
+        hidden_service_url = input("Enter the URL of the Tor hidden service (.onion): ")
+        file_url = input("Enter the URL of the HTML file on the hidden service: ")
+        download_file(file_url, ".html")
+
+    elif choice == "2":
+        hidden_service_url = input("Enter the URL of the Tor hidden service (.onion): ")
+        file_url = input("Enter the URL of the fav.ico file on the hidden service: ")
+        download_file(file_url, ".ico")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid choice. Please select a valid option.")
+
+# Stop the Tor process
+tor_process.kill()
