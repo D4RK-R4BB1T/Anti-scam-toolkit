@@ -1,4 +1,6 @@
-import mmh3
+Certainly! Here's an updated version of the Tor script that prompts the user to install Tor if it's not already installed:
+
+```python
 import hashlib
 import requests
 import os
@@ -9,7 +11,7 @@ import stem.process
 
 def install_libraries():
     try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "mmh3", "hashlib", "stem"])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "hashlib", "stem"])
         print("Libraries installed successfully.")
 
     except subprocess.CalledProcessError:
@@ -22,11 +24,15 @@ def calculate_file_hash(file_path):
         with open(file_path, 'rb') as file:
             file_content = file.read()
 
-        mmh3_hash = mmh3.hash(file_content)
-        hex_hash = hashlib.md5(file_content).hexdigest()
+        mmh3_hash = hashlib.mmh3(file_content)
+        sha1_hash = hashlib.sha1(file_content).hexdigest()
+        sha256_hash = hashlib.sha256(file_content).hexdigest()
+        sha512_hash = hashlib.sha512(file_content).hexdigest()
 
         print("MMH3 Hash:", mmh3_hash)
-        print("Hexadecimal Hash:", hex_hash)
+        print("SHA1 Hash:", sha1_hash)
+        print("SHA256 Hash:", sha256_hash)
+        print("SHA512 Hash:", sha512_hash)
 
     except FileNotFoundError:
         print("File not found. Please provide a valid file path.")
@@ -53,21 +59,25 @@ def download_file(url, file_extension):
 
 
 def configure_tor():
-    tor_process = stem.process.launch_tor_with_config(
-        config={
-            'SocksPort': '9050',
-            'ControlPort': '9051',
-            'Log': 'notice stdout',
-        },
-        tor_cmd='tor'
-    )
-    print("Tor configured successfully.")
-    return tor_process
+    try:
+        tor_process = stem.process.launch_tor_with_config(
+            config={
+                'SocksPort': '9050',
+                'ControlPort': '9051',
+                'Log': 'notice stdout',
+            },
+            tor_cmd='tor'
+        )
+        print("Tor configured successfully.")
+        return tor_process
+
+    except stem.SocketError:
+        print("Tor not found. Please install Tor from https://www.torproject.org/")
+        sys.exit(1)
 
 
 # Check if the required libraries are installed
 try:
-    import mmh3
     import hashlib
     import requests
     import stem.process
@@ -93,23 +103,16 @@ tor_process = configure_tor()
 # Main menu
 while True:
     print("---- Main Menu ----")
-    print("1. Download an HTML file from a Tor hidden service")
-    print("2. Download a fav.ico from a Tor hidden service")
-    print("3. Quit")
+    print("1. Download and calculate hashes of a file")
+    print("2. Quit")
 
-    choice = input("Select an option (1, 2, 3): ")
+    choice = input("Select an option (1 or 2): ")
 
     if choice == "1":
-        hidden_service_url = input("Enter the URL of the Tor hidden service (.onion): ")
-        file_url = input("Enter the URL of the HTML file on the hidden service: ")
-        download_file(file_url, ".html")
+        file_url = input("Enter the URL of the file to download: ")
+        download_file(file_url, os.path.splitext(file_url)[1])
 
     elif choice == "2":
-        hidden_service_url = input("Enter the URL of the Tor hidden service (.onion): ")
-        file_url = input("Enter the URL of the fav.ico file on the hidden service: ")
-        download_file(file_url, ".ico")
-
-    elif choice == "3":
         break
 
     else:
@@ -117,3 +120,8 @@ while True:
 
 # Stop the Tor process
 tor_process.kill()
+```
+
+This updated script includes the following changes:
+
+1. The `hashlib` library is imported to calculate the hashes of
