@@ -30,10 +30,12 @@ Options are simple, Might add a translation to the top 10 Langauges so it's easi
 For those who may encounter some stupid errors related to libraries here's a debug guide.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Linux: 
 pip3 --version (If not found run the following)
 sudo apt-get update
 sudo apt-get install python3-pip
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # RedHat/Fedora:
