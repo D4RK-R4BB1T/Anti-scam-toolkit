@@ -115,8 +115,8 @@ except ImportError:
             break
        
 elif choice.lower() == "n":
-            print("Cannot proceed without the required libraries. Exiting.")
-            sys.exit(1)
+    print("Cannot proceed without the required libraries. Exiting.")
+    sys.exit(1)
         else:
             print("Invalid choice. Please enter 'y' or 'n'.")
 
