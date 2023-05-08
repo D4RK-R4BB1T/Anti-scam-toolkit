@@ -8,7 +8,7 @@ import subprocess
 
 def install_libraries():
     try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "hashlib", "requests", "stem"])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "requests", "stem"])
         print("Libraries installed successfully.")
 
     except subprocess.CalledProcessError:
