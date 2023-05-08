@@ -24,9 +24,11 @@ I Hope to generate links, add support for Tor & the script should ask you to ins
 python3 MMH3.py
 
 Options are simple, Might add a translation to the top 10 Langauges so it's easier to plug and play globally.
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # For those who may encounter some stupid errors related to libraries here's a debug guide.
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Linux: 
 pip3 --version (If not found run the following)
