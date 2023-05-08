@@ -4,7 +4,9 @@ This program is currently supports generating MMH3 Hashes for .html & .ico files
 Currently has 3 Options & Is script kiddie friendly.
 
 1. Generate a hash based on a local file (Might Just be .html) so may update this if it's the case.
+
 2. Download + Generate a MMH3 Hash + Hexidecmial Value from a webpage (please prefix with http:// or https:// or you'll get an error)
+
 3. Clone a Github repo and specifiy a file you want to generate a hash from.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
