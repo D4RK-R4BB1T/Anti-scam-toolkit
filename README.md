@@ -2,6 +2,8 @@
 
 This was orginally "Anti_Drainer" But I have since renamed the directory to be a bit more fitting.
 
+This toolkit focuses on sniffing out lazy scammers webpages or anything for that matter by focusing on fav.ico & .html MMH3 Hashes & SSL Cert Hash fingerprints, It should allow you to easily use 2 IoT & Certicate Browsers more efficiantly and is user friendly. It's plug and play for those who have installed Python3. 
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # What's included:
@@ -24,8 +26,23 @@ The script also allows one to clone github repos to generate MMH3 Hashes from fa
 This script generates SSL hashes and exports prints via CLI, This can be used with https://search.censys.io/ under the drop  down menu with the option "Certificates (Legacy)" using the following usage: parsed.fingerprint_sha1:
 example: parsed.fingerprint_sha1:a34ea38610da6cd18c7354abe68f7d21722cb4d5 = Google.com
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # About Future Updates:
 
-Tor seems to be annoying due to how the script was written and how Debian 11 was installed so Until I figure out both, Not going to add it here. Second of all we'll add direct links to shodan & censys (ALL YOU HAVE TO DO IS LOGIN TO EACH SERVICE FIRST!)
+1. Tor seems to be annoying due to how the script was written and how Debian 11 was installed so Until I figure out both, Not going to add it here. 
+
+2. we'll add direct links to shodan & censys (ALL YOU HAVE TO DO IS LOGIN TO EACH SERVICE FIRST!)
+
+3. We'll create a script which will make it easier to use shodan for those whom have already logged in by allowing you to just enter keywords or batch keywords than export/print a direct link using the search operator. For instance if you wanted to use http.html:"Carding" the script will generate the direct link for you i.e. https://www.shodan.io/search?query=http.html%3A%22carding%22 when you only typed Carding, allowing you to be fucking lazy. The script will also allow you to batch keywords from a text file as I seriously hate the daily limit and It's just easier to pickup from a exported .txt file. You'll also be able to generate 20 pages by allowing you to just browse without having to manually click NEXT instead of go to page XX or god forbid add the damn page number to the URL because good lord I'd rather just be able to gen my 20 pages and pick what one I want to go to without having to blow through my daily limit. (There's no go-to page button so I'm semi-fixing that).
+
+Will find a way to add Network Header Collections so potential leaks can be observered
+
+Will add some feature to see technology used such as Programming Langauge, Security, Analytics and etc.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# end goal:
+
+The end goal here is simple, Make an open-source user friendly tool kit that's going to make shit easier, lazier & faster all without having to install browser addons or additional scripts/programs whist keeping this as error-free & Simple. All you need is python3, An Internet connection and 2-3 brain cells. 
