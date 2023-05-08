@@ -27,7 +27,7 @@ Options are simple, Might add a translation to the top 10 Langauges so it's easi
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# For those who may encounter some stupid errors related to libraries here's a debug guide.
+For those who may encounter some stupid errors related to libraries here's a debug guide.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Linux: 
