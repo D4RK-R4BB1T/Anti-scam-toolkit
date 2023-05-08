@@ -30,7 +30,7 @@ example: parsed.fingerprint_sha1:a34ea38610da6cd18c7354abe68f7d21722cb4d5 = Goog
 
 # About Future Updates:
 
-1. Tor seems to be annoying due to how the script was written and how Debian 11 was installed so Until I figure out both, Not going to add it here. 
+1. ~~Tor seems to be annoying due to how the script was written and how Debian 11 was installed so Until I figure out both, Not going to add it here.~~ Just change .onion to onion.ly for now. Tor is now I'll say officially supported. 
 
 2. ~~we'll add direct links to shodan & censys~~ You will now have a direct link to shodan but not censys (ALL YOU HAVE TO DO IS LOGIN TO EACH SERVICE FIRST!)
 
