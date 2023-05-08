@@ -18,7 +18,7 @@ def calculate_file_hash(file_path):
         print("Hexadecimal Hash:", hex_hash)
 
         # Generate Shodan link
-        shodan_link = f"https://www.shodan.io/search?query=http.html_hash%3A{mmh3_hash}"
+        shodan_link = f"https://www.shodan.io/search?query=http.html_hash%3A-{mmh3_hash}"
         print("Shodan Link:", shodan_link)
 
     except FileNotFoundError:
