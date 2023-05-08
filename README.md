@@ -4,13 +4,13 @@ This was orginally "Anti_Drainer" But I have since renamed the directory to be a
 
 This toolkit focuses on sniffing out lazy scammers webpages or anything for that matter by focusing on fav.ico & .html MMH3 Hashes & SSL Cert Hash fingerprints, It should allow you to easily use 2 IoT & Certicate Browsers more efficiantly and is user friendly. It's plug and play for those who have installed Python3. 
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # What's included:
 
 So far: 2 scripts which have their own usage but will be updated to make shit easier for script kiddies and technologically impaired folk to get into security with ease.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # MMH3.py
 
@@ -19,12 +19,18 @@ This script is to simply allow you to Generate MMH3 Hashes for usage with https:
 
 The script also allows one to clone github repos to generate MMH3 Hashes from fav.ico and HTML documents allowing one to index pages via shodan easier. It also supports Generation offline.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # SSL-gen.py
 
 This script generates SSL hashes and exports prints via CLI, This can be used with https://search.censys.io/ under the drop  down menu with the option "Certificates (Legacy)" using the following usage: parsed.fingerprint_sha1:
 example: parsed.fingerprint_sha1:a34ea38610da6cd18c7354abe68f7d21722cb4d5 = Google.com
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Tor Support Officially released
+
+Despite their being a bug with the .fav ico missprinting a direct shodan link, Tor is now supported but the proxy it uses shouldn't be trusted for everything. I Highly recommend avoiding sites dealing with Pedophila, Beastiality & Etc as this will download an .html or .fav ico & That can get messy quickly. to add Tor Support just apperhend the domain with .ly (.onion.ly) this allows the bypassing of those who'd otherwise not be able to use Tor Browser but since it's a clear-net proxy I wouldn't trust it with my Privacy & thus should only be used for easily accessing otherwise hard to each services. This also means other programs such as Dirsearch are now able to also storm the heavens & take down the gods.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
