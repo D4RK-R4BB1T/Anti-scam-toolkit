@@ -113,12 +113,11 @@ except ImportError:
         if choice.lower() == "y":
             install_libraries()
             break
-       
-elif choice.lower() == "n":
+       elif choice.lower() == "n":
     print("Cannot proceed without the required libraries. Exiting.")
     sys.exit(1)
-        else:
-            print("Invalid choice. Please enter 'y' or 'n'.")
+else:
+    print("Invalid choice. Please enter 'y' or 'n'.")
 
 # Check if Tor is running or start it if necessary
 if not is_tor_running():
