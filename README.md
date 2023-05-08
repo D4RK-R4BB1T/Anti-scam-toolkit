@@ -57,7 +57,9 @@ pip --version
 
 # libraries are as follows:
 mmh3
+
 hashlib
+
 requests
 
 Run pip3 install [insert library name here]
