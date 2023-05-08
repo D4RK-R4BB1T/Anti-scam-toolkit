@@ -12,13 +12,20 @@ Currently has 3 Options & Is script kiddie friendly.
 
 This is intended to combat NFT Drainers by calculating Hashes to be used with shodan.io by using the following search: http.html_hash:"[INSERT HASH HERE]" I plan to have ChatGPT update & Add support for tor that way we can easily monitor potential opsec failures via fav.ico hashes. I'll continue to update this file & Hopefully add support for Generating SSL Information or printing links for shodan, censys & zoomeye to make it even easier as a plug and play script so no one needs to read that terrible documentation.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Future plans
+
 I Hope to generate links, add support for Tor & the script should ask you to install libraries.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 to run: python3 MMH3.py
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Options are simple, Might add a translation to the top 10 Langauges so it's easier to plug and play globally.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-For those who may encounter some stupid errors related to libraries here's a debug guide.
+# For those who may encounter some stupid errors related to libraries here's a debug guide.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Linux: 
 pip3 --version (If not found run the following)
