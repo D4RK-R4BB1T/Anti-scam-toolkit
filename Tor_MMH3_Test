@@ -1,6 +1,4 @@
-Certainly! Here's an updated version of the Tor script that prompts the user to install Tor if it's not already installed:
 
-```python
 import hashlib
 import requests
 import os
@@ -120,8 +118,4 @@ while True:
 
 # Stop the Tor process
 tor_process.kill()
-```
 
-This updated script includes the following changes:
-
-1. The `hashlib` library is imported to calculate the hashes of
