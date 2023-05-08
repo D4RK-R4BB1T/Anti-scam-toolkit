@@ -107,17 +107,16 @@ try:
 except ImportError:
     print("Required libraries not found.")
 
-    while True:
-        choice = input("Do you want to install the required libraries? (y/n): ")
-
-        if choice.lower() == "y":
-            install_libraries()
-            break
-       elif choice.lower() == "n":
-    print("Cannot proceed without the required libraries. Exiting.")
-    sys.exit(1)
-else:
-    print("Invalid choice. Please enter 'y' or 'n'.")
+while True:
+    choice = input("Do you want to install the required libraries? (y/n): ")
+    if choice.lower() == "y":
+        install_libraries()
+        break
+    elif choice.lower() == "n":
+        print("Cannot proceed without the required libraries. Exiting.")
+        sys.exit(1)
+    else:
+        print("Invalid choice. Please enter 'y' or 'n'.")
 
 # Check if Tor is running or start it if necessary
 if not is_tor_running():
