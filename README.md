@@ -1,74 +1,31 @@
-# Anti Drainer - MMH3 Hash Generator for Shodan.io
+# The Anti-Scam toolkit
 
-This program is currently supports generating MMH3 Hashes for .html & .ico files, I got fucking tired of no one making a damn simple script so I made one my damn self.
-Currently has 3 Options & Is script kiddie friendly.
+This was orginally "Anti_Drainer" But I have since renamed the directory to be a bit more fitting.
 
-1. Generate a hash based on a local file (Might Just be .html) so may update this if it's the case.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-2. Download + Generate a MMH3 Hash + Hexidecmial Value from a webpage (please prefix with http:// or https:// or you'll get an error)
+# What's included:
 
-3. Clone a Github repo and specifiy a file you want to generate a hash from.
+So far: 2 scripts which have their own usage but will be updated to make shit easier for script kiddies and technologically impaired folk to get into security with ease.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# MMH3.py
+
+This script is to simply allow you to Generate MMH3 Hashes for usage with https://shodan.io/ (http.html_hash: & hash:) These can be useful for tracking scammers who'll just move their files to another server to prevent an outage due to mass reporing or SpamHaus shutting them down quickly. We encounter this with Tech Support Scammers based out of India quite often when they use AWS, they just move their web application to another machine to avoid an abuse report from effecting them. We also noticed an NFT Pooh Cash move fail to update their old <title></title> HTML Tags so the webpage which was being moved presented a different TLD than the one I was currently on, Couldn't move fast enough I suppose.
 
 
-This is intended to combat NFT Drainers by calculating Hashes to be used with shodan.io by using the following search: http.html_hash:"[INSERT HASH HERE]" I plan to have ChatGPT update & Add support for tor that way we can easily monitor potential opsec failures via fav.ico hashes. I'll continue to update this file & Hopefully add support for Generating SSL Information or printing links for shodan, censys & zoomeye to make it even easier as a plug and play script so no one needs to read that terrible documentation.
+The script also allows one to clone github repos to generate MMH3 Hashes from fav.ico and HTML documents allowing one to index pages via shodan easier. It also supports Generation offline.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Future plans
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-I Hope to generate links, add support for Tor & the script should ask you to install libraries.
+# SSL-gen.py
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This script generates SSL hashes and exports prints via CLI, This can be used with https://search.censys.io/ under the drop  down menu with the option "Certificates (Legacy)" using the following usage: parsed.fingerprint_sha1:
+example: parsed.fingerprint_sha1:a34ea38610da6cd18c7354abe68f7d21722cb4d5 = Google.com
 
-# to run: 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-python3 MMH3.py
+# About Future Updates:
 
-Options are simple, Might add a translation to the top 10 Langauges so it's easier to plug and play globally.
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-For those who may encounter some stupid errors related to libraries here's a debug guide.
-
-# Linux: 
-pip3 --version (If not found run the following)
-sudo apt-get update
-sudo apt-get install python3-pip
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-# RedHat/Fedora:
-sudo dnf install python3-pip
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-# MacOS:
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install python3
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-# Windows:
-python --version
-python -m ensurepip --upgrade
-pip --version
-(Make sure during python3's install you had it on path).
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-# libraries are as follows:
-mmh3
-
-hashlib
-
-requests
-
-to install these run:
-
-pip3 install [insert library name here]
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-If you run into a "Connections Error" you didn't add HTTPS:// or HTTP:// 
-As for anything else the script is simple & Shouldn't be buggy
+Tor seems to be annoying due to how the script was written and how Debian 11 was installed so Until I figure out both, Not going to add it here. Second of all we'll add direct links to shodan & censys (ALL YOU HAVE TO DO IS LOGIN TO EACH SERVICE FIRST!)
